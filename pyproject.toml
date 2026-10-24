@@ -1,0 +1,29 @@
+[project]
+name = "eu-impact"
+version = "0.1.0"
+description = "Pilot dataset of finished Horizon 2020 projects and their linked outputs."
+requires-python = ">=3.11"
+dependencies = [
+    "duckdb>=1.1",
+    "pandas>=2.2",
+    "pyarrow>=16",
+    "python-dotenv>=1.0",
+    "pyyaml>=6.0",
+    "requests>=2.32",
+]
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[project.scripts]
+duckdb = "eu_impact.sql_cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/eu_impact"]
+
+[tool.hatch.build.targets.wheel.sources]
+"src/eu_impact" = "eu_impact"

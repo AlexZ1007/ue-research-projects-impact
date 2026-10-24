@@ -1,0 +1,26 @@
+sample_size: 30
+seed: 42
+end_year_min: 2018
+end_year_max: 2022
+status: CLOSED
+citation_window_years: 3
+request_pause_seconds: 1.0
+
+cordis:
+  projects_zip: https://cordis.europa.eu/data/cordis-h2020projects-csv.zip
+  publications_zip: https://cordis.europa.eu/data/cordis-h2020projectPublications-csv.zip
+  reports_zip: https://cordis.europa.eu/data/cordis-h2020reports-csv.zip
+
+openaire:
+  base_url: https://api.openaire.eu/graph/v3/research-products
+  page_size: 100
+
+zenodo:
+  base_url: https://zenodo.org/api/records
+  page_size: 25
+  ec_funder: "10.13039/501100000780"
+
+openalex:
+  base_url: https://api.openalex.org/works
+  per_page: 100
+  doi_batch_size: 20

@@ -1,0 +1,10 @@
+.venv/
+uv.lock
+.env
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+# Caches from the pulls. The processed tables are tracked.
+data/raw/
+data/interim/
