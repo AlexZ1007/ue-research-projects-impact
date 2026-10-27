@@ -1,8 +1,10 @@
 # Processing
 
-Each step reads `config/pilot.yaml` and writes Parquet. Raw API and zip responses stay in `data/raw/` and are reused on the next run. Interim tables are `data/interim/`. The four final tables are `data/processed/`. Column definitions are in [schema.md](schema.md). Source URLs are in [sources.md](sources.md).
+Each step reads `config/pilot.yaml`. The four published tables are written to `data/processed/`. Column definitions are in [schema.md](schema.md). Source URLs are in [sources.md](sources.md).
 
-Run the steps in this order. Later pulls use `data/interim/pilot_ids.parquet` from CORDIS. OpenAlex also needs the DOI lists from the earlier pulls.
+The configuration selects projects with an end date in 2018–2022, then draws `sample_size` of them with `seed` as a validation sample. The current sample is 30 projects, seed 42, taken from the CORDIS Horizon 2020 project distribution. It is not the intended size of the dataset. The intended dataset is EU-funded research projects from that end-date window.
+
+Run the steps in this order. Later pulls use the CORDIS id list from the first step. OpenAlex also needs the DOI lists from the earlier pulls.
 
 ```bash
 uv run python -m eu_impact.pull.cordis
@@ -20,13 +22,13 @@ Set `OPENALEX_MAILTO` in `.env` before the OpenAlex step.
 
 | Step | Writes | What it keeps |
 | --- | --- | --- |
-| `pull.cordis` | `pilot_ids`, `cordis_projects`, `cordis_organisations`, `cordis_publications` | Closed H2020 projects with an end date in 2018–2022. After sorting by grant id, `sample_size` projects are drawn with `seed`. |
+| `pull.cordis` | `pilot_ids`, `cordis_projects`, `cordis_organisations`, `cordis_publications` | Closed projects with an end date in 2018–2022. After sorting by grant id, `sample_size` projects are drawn with `seed`. |
 | `pull.openaire` | `openaire_outputs` | Research products linked to the grant id |
 | `pull.zenodo` | `zenodo_outputs` | Records that cite the grant, with views and downloads |
 | `pull.openalex` | `openalex_works` | Works for the grant award id, then any known DOI that search missed |
 | `pull.citations` | `openalex_citations` | Citing works that share no author with the cited work, counted by publication year |
 
-`results_summary` is empty. The CORDIS report dump has image paths, not the summary text.
+`results_summary` is empty. The CORDIS report file has image paths, not the summary text.
 
 ## Linking
 

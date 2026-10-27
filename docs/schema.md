@@ -10,7 +10,7 @@ All four tables are Parquet in `data/processed/`. Join key is `project_id`, the 
 | acronym | Project acronym |
 | title | Project title |
 | objective | Project objective text |
-| programme | Framework programme (`H2020`) |
+| programme | Framework programme code from the CORDIS record. In the validation sample the value is `H2020` |
 | topics | EuroSciVoc titles, joined with ` \| ` |
 | field | Distinct top-level EuroSciVoc domains, joined with ` \| ` |
 | ec_contribution | EU contribution, from CORDIS `ecMaxContribution`, in euro |
@@ -18,12 +18,12 @@ All four tables are Parquet in `data/processed/`. Join key is `project_id`, the 
 | start_date | Project start date |
 | end_date | Project end date |
 | coordinator_country | Country code of the coordinating organisation |
-| results_summary | Empty. The report dump has image paths, not the summary text. See [sources.md](sources.md) |
+| results_summary | Empty. The CORDIS report file has image paths, not the summary text. See [sources.md](sources.md) |
 | retrieved_at | Time this table was built |
 
 ## organisations
 
-One row per organisation on a pilot project.
+One row per organisation on a project.
 
 | column | description |
 | --- | --- |

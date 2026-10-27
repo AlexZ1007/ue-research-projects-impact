@@ -1,4 +1,6 @@
-# Pilot coverage
+# Validation sample coverage
+
+These figures describe the 30-project validation sample. They do not describe the full dataset.
 
 30 projects. 3633 output rows after linking on grant id and DOI.
 

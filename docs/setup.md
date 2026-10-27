@@ -21,10 +21,10 @@ What each step writes, and how rows are linked, is in [processing.md](processing
 ## Layout
 
 ```
-config/pilot.yaml          cohort size, seed, citation window, source URLs
+config/pilot.yaml          validation sample size, seed, citation window, source URLs
 src/eu_impact/pull/        one script per source, plus the citation pull
 src/eu_impact/build/       table build and coverage note
-data/raw/                  cached downloads
-data/interim/              per-source Parquet
 data/processed/            projects, organisations, outputs, project_metrics
 ```
+
+`config/pilot.yaml` sets the validation sample (currently 30 projects, seed 42). The intended dataset is the wider set of EU-funded research projects that ended in 2018–2022. Its final size is not fixed.

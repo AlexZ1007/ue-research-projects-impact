@@ -1,6 +1,6 @@
 # Viewing the tables
 
-The tables are Parquet. These commands print them in the terminal. `uv sync` installs the `duckdb` command used here. `objective` is long, so the projects query lists columns instead of `SELECT *`.
+The Parquet files in `data/processed/` currently hold the 30-project validation sample. These commands print them in the terminal. `uv sync` installs the `duckdb` command used here. `objective` is long, so the projects query lists columns instead of `SELECT *`.
 
 ```bash
 uv run duckdb -c "SELECT project_id, acronym, title, field, ec_contribution, total_cost, start_date, end_date, coordinator_country FROM 'data/processed/projects.parquet' LIMIT 30"
@@ -18,4 +18,4 @@ uv run duckdb -c "SELECT project_id, doi, output_type, publication_date, timing,
 uv run duckdb -c "SELECT * FROM 'data/processed/project_metrics.parquet' LIMIT 30"
 ```
 
-The coverage note is `data/processed/coverage.md`.
+The coverage note for this sample is `data/processed/coverage.md`.

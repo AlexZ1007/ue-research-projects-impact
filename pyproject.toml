@@ -1,7 +1,7 @@
 [project]
 name = "eu-impact"
 version = "0.1.0"
-description = "Pilot dataset of finished Horizon 2020 projects and their linked outputs."
+description = "Dataset of EU-funded research projects and their linked outputs."
 requires-python = ">=3.11"
 dependencies = [
     "duckdb>=1.1",
