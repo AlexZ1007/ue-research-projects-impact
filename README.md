@@ -29,3 +29,4 @@ Pilot dataset of finished Horizon 2020 projects and the outputs linked to them b
 | [docs/schema.md](docs/schema.md) | Columns in the four processed tables |
 | [docs/viewing.md](docs/viewing.md) | Commands that print the Parquet tables |
 | [docs/reuse.md](docs/reuse.md) | Which source data can be published, and the restrictions |
+| [docs/data-proposal.md](docs/data-proposal.md) | Why this dataset, where it comes from, and the record shape |
